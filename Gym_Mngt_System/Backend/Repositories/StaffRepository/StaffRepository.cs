@@ -230,7 +230,7 @@ namespace Gym_Mngt_System.Backend.Repositories
             {
                 using (var _conn = _connection.getConnection())
                 {
-                    string query = "SELECT * FROM trainer_plan";
+                    string query = "SELECT *, price - (price * 0.10) AS discountedprice FROM trainer_plan";
                     using (var cmd = new SqlCommand(query, _conn))
                     {
                         using (var reader = cmd.ExecuteReader())
@@ -242,7 +242,7 @@ namespace Gym_Mngt_System.Backend.Repositories
                                     trainerPlanID = Convert.ToInt32(reader["trainer_plan_id"]),
                                     planName = reader["trainer_plan"].ToString(),
                                     durationInDays = Convert.ToInt32(reader["duration"]),
-                                    price = Convert.ToDecimal(reader["price"])
+                                    price = Convert.ToDecimal(reader["discountedprice"])
                                 });
                             }
                         }

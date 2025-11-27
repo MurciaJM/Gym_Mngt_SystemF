@@ -42,6 +42,7 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblPlan = new System.Windows.Forms.Label();
             this.lblMemberName = new System.Windows.Forms.Label();
+            this.requestQrCode = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             this.guna2GradientPanel1.BorderRadius = 15;
             this.guna2GradientPanel1.BorderThickness = 1;
             this.guna2GradientPanel1.Controls.Add(this.lblMemberID);
+            this.guna2GradientPanel1.Controls.Add(this.requestQrCode);
             this.guna2GradientPanel1.Controls.Add(this.btnRenew);
             this.guna2GradientPanel1.Controls.Add(this.btnViewDetails);
             this.guna2GradientPanel1.Controls.Add(this.lblExpires);
@@ -68,9 +70,9 @@
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.White;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(316, 369);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(421, 454);
             this.guna2GradientPanel1.TabIndex = 0;
             this.guna2GradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel1_Paint);
             // 
@@ -80,10 +82,9 @@
             this.lblMemberID.BackColor = System.Drawing.Color.White;
             this.lblMemberID.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemberID.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblMemberID.Location = new System.Drawing.Point(7, 6);
-            this.lblMemberID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMemberID.Location = new System.Drawing.Point(9, 7);
             this.lblMemberID.Name = "lblMemberID";
-            this.lblMemberID.Size = new System.Drawing.Size(80, 20);
+            this.lblMemberID.Size = new System.Drawing.Size(101, 25);
             this.lblMemberID.TabIndex = 18;
             this.lblMemberID.Text = "MemberID";
             this.lblMemberID.Click += new System.EventHandler(this.lblMemberID_Click);
@@ -100,10 +101,10 @@
             this.btnRenew.FillColor = System.Drawing.Color.Transparent;
             this.btnRenew.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRenew.ForeColor = System.Drawing.Color.Black;
-            this.btnRenew.Location = new System.Drawing.Point(198, 330);
-            this.btnRenew.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRenew.Location = new System.Drawing.Point(264, 406);
+            this.btnRenew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRenew.Name = "btnRenew";
-            this.btnRenew.Size = new System.Drawing.Size(90, 26);
+            this.btnRenew.Size = new System.Drawing.Size(120, 32);
             this.btnRenew.TabIndex = 17;
             this.btnRenew.Text = "Renew";
             this.btnRenew.Click += new System.EventHandler(this.btnRenew_Click);
@@ -122,11 +123,11 @@
             this.btnViewDetails.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewDetails.ForeColor = System.Drawing.Color.Black;
             this.btnViewDetails.Image = global::Gym_Mngt_System.Properties.Resources.info;
-            this.btnViewDetails.Location = new System.Drawing.Point(285, 6);
-            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.btnViewDetails.Location = new System.Drawing.Point(380, 7);
+            this.btnViewDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.PressedColor = System.Drawing.Color.Empty;
-            this.btnViewDetails.Size = new System.Drawing.Size(29, 20);
+            this.btnViewDetails.Size = new System.Drawing.Size(39, 25);
             this.btnViewDetails.TabIndex = 16;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
@@ -135,10 +136,9 @@
             this.lblExpires.AutoSize = true;
             this.lblExpires.BackColor = System.Drawing.Color.White;
             this.lblExpires.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Italic);
-            this.lblExpires.Location = new System.Drawing.Point(193, 293);
-            this.lblExpires.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblExpires.Location = new System.Drawing.Point(36, 270);
             this.lblExpires.Name = "lblExpires";
-            this.lblExpires.Size = new System.Drawing.Size(76, 25);
+            this.lblExpires.Size = new System.Drawing.Size(93, 32);
             this.lblExpires.TabIndex = 15;
             this.lblExpires.Text = "Expires:";
             // 
@@ -147,10 +147,9 @@
             this.lblStat.AutoSize = true;
             this.lblStat.BackColor = System.Drawing.Color.White;
             this.lblStat.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStat.Location = new System.Drawing.Point(27, 180);
-            this.lblStat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStat.Location = new System.Drawing.Point(36, 222);
             this.lblStat.Name = "lblStat";
-            this.lblStat.Size = new System.Drawing.Size(65, 26);
+            this.lblStat.Size = new System.Drawing.Size(80, 32);
             this.lblStat.TabIndex = 14;
             this.lblStat.Text = "Status";
             // 
@@ -159,10 +158,9 @@
             this.labelPlan.AutoSize = true;
             this.labelPlan.BackColor = System.Drawing.Color.White;
             this.labelPlan.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlan.Location = new System.Drawing.Point(27, 142);
-            this.labelPlan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlan.Location = new System.Drawing.Point(36, 175);
             this.labelPlan.Name = "labelPlan";
-            this.labelPlan.Size = new System.Drawing.Size(46, 26);
+            this.labelPlan.Size = new System.Drawing.Size(58, 32);
             this.labelPlan.TabIndex = 13;
             this.labelPlan.Text = "Plan";
             // 
@@ -171,10 +169,9 @@
             this.lblMemName.AutoSize = true;
             this.lblMemName.BackColor = System.Drawing.Color.White;
             this.lblMemName.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Bold);
-            this.lblMemName.Location = new System.Drawing.Point(25, 100);
-            this.lblMemName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMemName.Location = new System.Drawing.Point(33, 123);
             this.lblMemName.Name = "lblMemName";
-            this.lblMemName.Size = new System.Drawing.Size(187, 32);
+            this.lblMemName.Size = new System.Drawing.Size(229, 41);
             this.lblMemName.TabIndex = 12;
             this.lblMemName.Text = "Member Name";
             // 
@@ -190,10 +187,10 @@
             this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold);
             this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.Location = new System.Drawing.Point(516, 150);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button2.Location = new System.Drawing.Point(688, 185);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(87, 20);
+            this.guna2Button2.Size = new System.Drawing.Size(116, 25);
             this.guna2Button2.TabIndex = 11;
             this.guna2Button2.Text = "Renew";
             // 
@@ -209,10 +206,10 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(424, 150);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button1.Location = new System.Drawing.Point(565, 185);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(87, 20);
+            this.guna2Button1.Size = new System.Drawing.Size(116, 25);
             this.guna2Button1.TabIndex = 10;
             this.guna2Button1.Text = "View Details";
             // 
@@ -220,10 +217,9 @@
             // 
             this.lblDaysLeft.AutoSize = true;
             this.lblDaysLeft.BackColor = System.Drawing.Color.Honeydew;
-            this.lblDaysLeft.Location = new System.Drawing.Point(422, 119);
-            this.lblDaysLeft.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDaysLeft.Location = new System.Drawing.Point(563, 146);
             this.lblDaysLeft.Name = "lblDaysLeft";
-            this.lblDaysLeft.Size = new System.Drawing.Size(44, 13);
+            this.lblDaysLeft.Size = new System.Drawing.Size(55, 16);
             this.lblDaysLeft.TabIndex = 9;
             this.lblDaysLeft.Text = "Expires:";
             // 
@@ -231,10 +227,9 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.BackColor = System.Drawing.Color.Honeydew;
-            this.lblStatus.Location = new System.Drawing.Point(-360, 148);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatus.Location = new System.Drawing.Point(-480, 182);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblStatus.Size = new System.Drawing.Size(44, 16);
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Status";
             // 
@@ -242,10 +237,9 @@
             // 
             this.lblPlan.AutoSize = true;
             this.lblPlan.BackColor = System.Drawing.Color.Honeydew;
-            this.lblPlan.Location = new System.Drawing.Point(-360, 133);
-            this.lblPlan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPlan.Location = new System.Drawing.Point(-480, 164);
             this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(28, 13);
+            this.lblPlan.Size = new System.Drawing.Size(34, 16);
             this.lblPlan.TabIndex = 7;
             this.lblPlan.Text = "Plan";
             // 
@@ -254,22 +248,41 @@
             this.lblMemberName.AutoSize = true;
             this.lblMemberName.BackColor = System.Drawing.Color.Honeydew;
             this.lblMemberName.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemberName.Location = new System.Drawing.Point(-362, 110);
-            this.lblMemberName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMemberName.Location = new System.Drawing.Point(-483, 135);
             this.lblMemberName.Name = "lblMemberName";
-            this.lblMemberName.Size = new System.Drawing.Size(126, 21);
+            this.lblMemberName.Size = new System.Drawing.Size(154, 27);
             this.lblMemberName.TabIndex = 6;
             this.lblMemberName.Text = "Member Name";
             // 
+            // requestQrCode
+            // 
+            this.requestQrCode.BackColor = System.Drawing.Color.White;
+            this.requestQrCode.BorderRadius = 10;
+            this.requestQrCode.BorderThickness = 1;
+            this.requestQrCode.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.requestQrCode.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.requestQrCode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.requestQrCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.requestQrCode.FillColor = System.Drawing.Color.Transparent;
+            this.requestQrCode.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold);
+            this.requestQrCode.ForeColor = System.Drawing.Color.Black;
+            this.requestQrCode.Location = new System.Drawing.Point(121, 406);
+            this.requestQrCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.requestQrCode.Name = "requestQrCode";
+            this.requestQrCode.Size = new System.Drawing.Size(137, 32);
+            this.requestQrCode.TabIndex = 17;
+            this.requestQrCode.Text = "Request QR";
+            this.requestQrCode.Click += new System.EventHandler(this.requestQrCode_Click);
+            // 
             // MembershipCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.guna2GradientPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MembershipCard";
-            this.Size = new System.Drawing.Size(316, 369);
+            this.Size = new System.Drawing.Size(421, 454);
             this.Load += new System.EventHandler(this.MembershipCard_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
@@ -293,5 +306,6 @@
         private System.Windows.Forms.Label labelPlan;
         private System.Windows.Forms.Label lblMemName;
         public System.Windows.Forms.Label lblMemberID;
+        private Guna.UI2.WinForms.Guna2Button requestQrCode;
     }
 }

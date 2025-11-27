@@ -1,4 +1,5 @@
-﻿using Gym_Mngt_System.Backend.Exceptions;
+﻿using Gym_Mngt_System.Backend.Entities;
+using Gym_Mngt_System.Backend.Exceptions;
 using Gym_Mngt_System.Backend.Service.Member_Service;
 using Gym_Mngt_System.Backend.Session;
 using System;
@@ -128,6 +129,62 @@ namespace Gym_Mngt_System.Memberships
         private void MembershipCard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void requestQrCode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var _membershipService = new MembershipService();
+
+                // Get the membership details for this member
+                var membership = _membershipService.GetAll().FirstOrDefault(m => m.memberID == this.MemberID);
+
+                if (membership == null)
+                {
+                    MessageBox.Show(
+                        "Membership not found. Unable to generate QR code.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Create a Member object with the necessary details
+                var member = new Member
+                {
+                    memberID = membership.memberID,
+                    fname = membership.memberName.Split(' ').FirstOrDefault() ?? "",
+                    lname = membership.memberName.Split(' ').LastOrDefault() ?? "",
+                    middle = membership.memberName.Split(' ').Length > 2
+                        ? membership.memberName.Split(' ')[1]
+                        : ""
+                };
+
+                // Generate the QR code
+                var qrCodeGenerator = new Gym_Mngt_System.Backend.Qrcode.qrCode();
+                byte[] qrCodeBytes = qrCodeGenerator.generateQrCode(membership.membershipID, member);
+
+                // Insert/Update the QR code in the database
+                _membershipService.insertQrCode(membership.membershipID, qrCodeBytes);
+
+                MessageBox.Show(
+                    $"QR Code generated and saved successfully!\n\n" +
+                    $"Member: {membership.memberName}\n" +
+                    $"Membership ID: {membership.membershipID}\n\n" +
+                    $"The QR code has been saved to your desktop and updated in the database.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"An error occurred while generating the QR code:\n\n{ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

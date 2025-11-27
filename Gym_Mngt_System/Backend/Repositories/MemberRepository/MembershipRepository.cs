@@ -69,7 +69,7 @@ namespace Gym_Mngt_System.Backend.Repositories.MemberRepository
             {
                 using (var _conn = _connection.getConnection())
                 {
-                    string query = "SELECT * FROM membership_type WHERE mem_type_id <> 1";
+                    string query = "SELECT *, price - (price * 0.10) AS discountedprice FROM membership_type WHERE mem_type_id <> 1";
                     using (var cmd = new SqlCommand(query, _conn))
                     {
                         using (var reader = cmd.ExecuteReader())
@@ -81,7 +81,7 @@ namespace Gym_Mngt_System.Backend.Repositories.MemberRepository
                                     membershipTypeID = Convert.ToInt32(reader["mem_type_id"]),
                                     typeName = reader["membership_type"].ToString(),
                                     durationInDays = Convert.ToInt32(reader["duration"]),
-                                    price = Convert.ToDecimal(reader["price"])
+                                    price = Convert.ToDecimal(reader["discountedprice"])
                                 });
                             }
                         }                        
