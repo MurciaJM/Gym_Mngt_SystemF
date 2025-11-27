@@ -1,6 +1,8 @@
-﻿using Gym_Mngt_System.Backend.Service.Member_Service;
+﻿using Gym_Mngt_System.Backend.Entities;
+using Gym_Mngt_System.Backend.Service.Member_Service;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,7 +13,7 @@ namespace Gym_Mngt_System.Backend.Qrcode
 {
     class qrCode
     {
-        public byte[] generateQrCode(int membershipId)
+        public byte[] generateQrCode(int membershipId, Member members)
         {
             try
             {
@@ -35,7 +37,7 @@ namespace Gym_Mngt_System.Backend.Qrcode
                         }
 
                         string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                        string fileName = $"MemberQR_{membershipId}_{DateTime.Now:yyyyMMdd_HHmmss}.png";
+                        string fileName = $"MemberQR_{membershipId}_{members.getFullname()}_{DateTime.Now:yyyyMMdd_HHmmss}.png";
                         string fullPath = Path.Combine(desktopPath, fileName);
 
                         // Save the QR code image

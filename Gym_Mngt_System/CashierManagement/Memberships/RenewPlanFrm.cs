@@ -22,9 +22,12 @@ namespace Gym_Mngt_System
         private Timer popupTimer;
         private int targetOpacity = 100;
 
+        private readonly StaffService _staffService = new StaffService();
         private readonly MembershipService _membershipService = new MembershipService();
         private List<MembershipType> _membershipTypes;
         private MembershipType _selectedType;
+        private List<TrainerPlan> _trainerPlans;
+        private List<Staff> _trainers;
         private int _memberID;
         private string _memberName;
 
@@ -33,11 +36,12 @@ namespace Gym_Mngt_System
             InitializeComponent();
             RoundFormCorners(30);
             InitializePopup();
+            LoadTrainerPlans();
+            LoadTrainers();
 
             _memberID = memberID;
             _memberName = memberName;
 
-            lblMemberId.Text = _memberID.ToString();
             lblMemberName.Text = memberName;
 
             _membershipTypes = _membershipService.GetMembershipType().ToList();
@@ -136,11 +140,16 @@ namespace Gym_Mngt_System
                         "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                var member = Member.Builder()
-                    .withMemberID(_memberID)
-                    //.withFullname(_memberName)
-                    .withMembershipType(_selectedType.membershipTypeID)
-                    .Build();
+                var memberBuilder = Member.Builder()
+                                .withMemberID(_memberID)
+                                .withMembershipType(_selectedType.membershipTypeID);
+
+                if (cbTrainers.SelectedIndex >= 0 && cbTrainerPlan.SelectedIndex >= 0)
+                {
+                    memberBuilder.withTrainerPlan((TrainerPlan)cbTrainerPlan.SelectedItem);
+                }
+
+                var member = memberBuilder.Build();
 
                 AddPaymentFrm addPaymentFrm = new AddPaymentFrm(member, _selectedType, null, true);
                 
@@ -168,7 +177,39 @@ namespace Gym_Mngt_System
         {
 
         }
+        public void LoadTrainerPlans()
+        {
+            _trainerPlans = _staffService.GetTrainerPlans().ToList();
+            cbTrainerPlan.DataSource = _trainerPlans;
+            cbTrainerPlan.DisplayMember = "planName";
+            cbTrainerPlan.ValueMember = "trainerPlanID";
+            cbTrainerPlan.SelectedIndex = -1;
+            cbTrainerPlan.Enabled = false; // Initially disabled
+        }
 
+        public void LoadTrainers()
+        {
+            _trainers = _staffService.GetAllTrainer().ToList();
+            cbTrainers.DataSource = _trainers;
+            cbTrainers.DisplayMember = "FullName";
+            cbTrainers.ValueMember = "staffID";
+            cbTrainers.SelectedIndex = -1;
+        }
+        private void UpdateTotalPrice()
+        {
+            decimal total = 0;
+
+            if (_selectedType != null)
+                total += _selectedType.price;
+
+            if (cbTrainers.SelectedIndex >= 0 && cbTrainerPlan.SelectedIndex >= 0)
+            {
+                var trainerPlan = (TrainerPlan)cbTrainerPlan.SelectedItem;
+                total += trainerPlan.price;
+            }
+
+            lblPrice.Text = "₱" + total.ToString("N2");
+        }
         private void cbPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbPlan.SelectedIndex == -1)
@@ -180,6 +221,36 @@ namespace Gym_Mngt_System
                 _selectedType = (MembershipType)cbPlan.SelectedItem;
                 lblPrice.Text = "₱" + _selectedType.price.ToString("N2");
             }
+
+            UpdateTotalPrice();
+        }
+
+        private void cbTrainers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTrainers.SelectedIndex >= 0)
+            {
+                cbTrainerPlan.Enabled = true;
+            }
+            else
+            {
+                cbTrainerPlan.Enabled = false;
+                cbTrainerPlan.SelectedIndex = -1;
+            }
+            UpdateTotalPrice();
+        }
+
+        private void cbTrainerPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTrainers.SelectedIndex >= 0)
+            {
+                cbTrainerPlan.Enabled = true;
+            }
+            else
+            {
+                cbTrainerPlan.Enabled = false;
+                cbTrainerPlan.SelectedIndex = -1;
+            }
+            UpdateTotalPrice();
         }
     }
 }

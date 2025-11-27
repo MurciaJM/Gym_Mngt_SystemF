@@ -14,7 +14,7 @@ namespace Gym_Mngt_System.Backend.Entities
         public decimal price { get; set; }
         public override string ToString()
         {
-            return $"{typeName} - ₱{ price} / {durationInDays} days";
+            return $"{typeName} - ₱{price:N2} / {durationInDays} days";
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Gym_Mngt_System.Backend.Entities
 
         public override string ToString()
         {
-            return planName;
+            return $"{planName} - ₱{price:N2} / {durationInDays} days";
         }
     }
 }

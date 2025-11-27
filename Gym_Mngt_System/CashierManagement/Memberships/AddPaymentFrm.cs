@@ -141,9 +141,18 @@ namespace Gym_Mngt_System
                     totalAmount += _member.planName.price;
                 }
 
-                lblPlan.Text = _membershipType.typeName;
+                if (_member.planName != null)
+                {
+                    lblTrainer.Text = $"{_member.planName.planName} - ₱{_member.planName.price:N2}";
+                }
+                else
+                {
+                    lblTrainer.Text = "No Trainer Plan";
+                }
 
+                lblPlan.Text = _membershipType.typeName + " - ₱" + _membershipType.price.ToString("N2");
                 lblAmount.Text = "₱" + totalAmount.ToString("N2");
+                lblTrainer.Text = _member.planName != null ? _member.planName.planName + " - ₱" + _member.planName.price.ToString("N2") : "No Trainer Plan";
             }
         }
         
@@ -208,7 +217,7 @@ namespace Gym_Mngt_System
                             qrMembershipId = _membershipService.addMembership(_member);
                         }
 
-                        qrBytes = qrGenerator.generateQrCode(qrMembershipId);
+                        qrBytes = qrGenerator.generateQrCode(qrMembershipId, _member);
                         _membershipService.insertQrCode(qrMembershipId, qrBytes);
 
                     }
