@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F08B4013-A574-40B4-9455-008450D9D86B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Gym_Mngt_System</RootNamespace>
+    <AssemblyName>Gym_Mngt_System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.7.0.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.7.0\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.9.0.10\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.11.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.11\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.11.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.11\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXing.Windows.Compatibility, Version=0.16.14.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.Bindings.Windows.Compatibility.0.16.14\lib\netstandard2.0\ZXing.Windows.Compatibility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminManagement\AdminFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\AdminFrm.Designer.cs">
+      <DependentUpon>AdminFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Admin_Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Admin_Inventory.Designer.cs">
+      <DependentUpon>Admin_Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\CheckMachineFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\CheckMachineFrm.Designer.cs">
+      <DependentUpon>CheckMachineFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\EquipmentsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\EquipmentsFrm.Designer.cs">
+      <DependentUpon>EquipmentsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Entities\Machine.cs" />
+    <Compile Include="AdminManagement\Inventory&amp;Management\MachineCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\MachineCard.Designer.cs">
+      <DependentUpon>MachineCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\MachinesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\MachinesFrm.Designer.cs">
+      <DependentUpon>MachinesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\AddStaffFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\AddStaffFrm.Designer.cs">
+      <DependentUpon>AddStaffFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\UsernameFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\UsernameFrm.Designer.cs">
+      <DependentUpon>UsernameFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Entities\Account.cs" />
+    <Compile Include="Backend\Entities\InvoiceLog.cs" />
+    <Compile Include="Backend\Entities\Member.cs" />
+    <Compile Include="Backend\Entities\MemberLog.cs" />
+    <Compile Include="Backend\Entities\Membership.cs" />
+    <Compile Include="Backend\Entities\MembershipType.cs" />
+    <Compile Include="Backend\Entities\MonthlyRevenue.cs" />
+    <Compile Include="Backend\Entities\Sessions.cs" />
+    <Compile Include="Backend\Entities\Staff.cs" />
+    <Compile Include="Backend\Entities\TrainerPlan.cs" />
+    <Compile Include="Backend\Exceptions\IncorrectCredentials.cs" />
+    <Compile Include="Backend\Exceptions\InvalidInput.cs" />
+    <Compile Include="Backend\Exceptions\MissingInputs.cs" />
+    <Compile Include="Backend\Exceptions\DetailsNotFound.cs" />
+    <Compile Include="Backend\Qrcode\qrCode.cs" />
+    <Compile Include="Backend\Repositories\InvoiceRepository\IInvoiceRepository.cs" />
+    <Compile Include="Backend\Repositories\InvoiceRepository\InvoiceRepository.cs" />
+    <Compile Include="Backend\Repositories\LifitingRepository\ILiftingRepository.cs" />
+    <Compile Include="Backend\Repositories\LifitingRepository\LiftingRepository.cs" />
+    <Compile Include="Backend\Repositories\MachineRepository\IMachineRepository.cs" />
+    <Compile Include="Backend\Repositories\MachineRepository\MachineRepository.cs" />
+    <Compile Include="Backend\Repositories\MemberRepository\IMembershipRepository.cs" />
+    <Compile Include="Backend\Repositories\MemberRepository\MembershipRepository.cs" />
+    <Compile Include="Backend\Repositories\SessionRepository\ISessionRepository.cs" />
+    <Compile Include="Backend\Repositories\SessionRepository\SessionRepository.cs" />
+    <Compile Include="Backend\Repositories\StaffRepository\IStaffRepository.cs" />
+    <Compile Include="Backend\Repositories\StaffRepository\StaffRepository.cs" />
+    <Compile Include="Backend\Service\Invoice Service\InvoiceService.cs" />
+    <Compile Include="Backend\Service\Member Service\MembershipService.cs" />
+    <Compile Include="Backend\Service\Session Service\SessionService.cs" />
+    <Compile Include="Backend\Service\Staff Service\StaffService.cs" />
+    <Compile Include="Backend\Service\Staff Service\StaffSession.cs" />
+    <Compile Include="Backend\Singleton\SingletonDB.cs" />
+    <Compile Include="AdminManagement\Inventory&amp;Management\Inventory\EquipmentCheckCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Inventory\EquipmentCheckCard.Designer.cs">
+      <DependentUpon>EquipmentCheckCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\MemberLogs\MemberLogCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\MemberLogs\MemberLogCard.Designer.cs">
+      <DependentUpon>MemberLogCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\MemberLogs\qrScanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\MemberLogs\qrScanner.Designer.cs">
+      <DependentUpon>qrScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\AddMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\AddMember.Designer.cs">
+      <DependentUpon>AddMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\MemberAddedEventArgs.cs" />
+    <Compile Include="CashierManagement\Notification\NotificationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Notification\NotificationCard.Designer.cs">
+      <DependentUpon>NotificationCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Trainers\TrainerDetailsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Trainers\TrainerDetailsFrm.Designer.cs">
+      <DependentUpon>TrainerDetailsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Trainers\TrainersCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Trainers\TrainersCard.Designer.cs">
+      <DependentUpon>TrainersCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Trainers\TrainerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Trainers\TrainerFrm.Designer.cs">
+      <DependentUpon>TrainerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Homepage\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\AddPaymentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\AddPaymentFrm.Designer.cs">
+      <DependentUpon>AddPaymentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Invoices\InvoiceCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Invoices\InvoiceCard.Designer.cs">
+      <DependentUpon>InvoiceCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\AddEquipmentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\AddEquipmentFrm.Designer.cs">
+      <DependentUpon>AddEquipmentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\AddMachineFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\AddMachineFrm.Designer.cs">
+      <DependentUpon>AddMachineFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\CheckLiftingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\CheckLiftingFrm.Designer.cs">
+      <DependentUpon>CheckLiftingFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\MemberLogs\Check-ins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\MemberLogs\Check-ins.Designer.cs">
+      <DependentUpon>Check-ins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\EditMachineFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\EditMachineFrm.Designer.cs">
+      <DependentUpon>EditMachineFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Entities\Equipment.cs" />
+    <Compile Include="AdminManagement\Inventory&amp;Management\EquipmentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\EquipmentCard.Designer.cs">
+      <DependentUpon>EquipmentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Inventory\MachineCheckCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Inventory\MachineCheckCard.Designer.cs">
+      <DependentUpon>MachineCheckCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\GenerateQrFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\GenerateQrFrm.Designer.cs">
+      <DependentUpon>GenerateQrFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\MembershipCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\MembershipCard.Designer.cs">
+      <DependentUpon>MembershipCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\RenewPlanFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\RenewPlanFrm.Designer.cs">
+      <DependentUpon>RenewPlanFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Sessions\AddSessions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Sessions\AddSessions.Designer.cs">
+      <DependentUpon>AddSessions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Sessions\Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Sessions\Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Dashboard\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Dashboard\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Inventory\Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Inventory&amp;Management\Inventory\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Sessions\SessionCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Sessions\SessionCard.Designer.cs">
+      <DependentUpon>SessionCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\EditStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\EditStaff.Designer.cs">
+      <DependentUpon>EditStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\FrmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\FrmStaff.Designer.cs">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Notification\NotificationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Notification\NotificationFrm.Designer.cs">
+      <DependentUpon>NotificationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Invoices\Invoice_and_paymentsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Invoices\Invoice_and_paymentsFrm.Designer.cs">
+      <DependentUpon>Invoice_and_paymentsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\MembershipFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\MembershipFrm.Designer.cs">
+      <DependentUpon>MembershipFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CashierManagement\Memberships\ViewMembershipFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierManagement\Memberships\ViewMembershipFrm.Designer.cs">
+      <DependentUpon>ViewMembershipFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\StaffCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\StaffCard.Designer.cs">
+      <DependentUpon>StaffCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\ViewStaffDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement\Staffs\ViewStaffDetails.Designer.cs">
+      <DependentUpon>ViewStaffDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomeFrm.Designer.cs">
+      <DependentUpon>WelcomeFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminManagement\AdminFrm.resx">
+      <DependentUpon>AdminFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\Admin_Inventory.resx">
+      <DependentUpon>Admin_Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\CheckMachineFrm.resx">
+      <DependentUpon>CheckMachineFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\EquipmentsFrm.resx">
+      <DependentUpon>EquipmentsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\MachineCard.resx">
+      <DependentUpon>MachineCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\MachinesFrm.resx">
+      <DependentUpon>MachinesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Staffs\AddStaffFrm.resx">
+      <DependentUpon>AddStaffFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\Inventory\EquipmentCheckCard.resx">
+      <DependentUpon>EquipmentCheckCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Staffs\UsernameFrm.resx">
+      <DependentUpon>UsernameFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\MemberLogs\MemberLogCard.resx">
+      <DependentUpon>MemberLogCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\MemberLogs\qrScanner.resx">
+      <DependentUpon>qrScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\AddMember.resx">
+      <DependentUpon>AddMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Notification\NotificationCard.resx">
+      <DependentUpon>NotificationCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Trainers\TrainerDetailsFrm.resx">
+      <DependentUpon>TrainerDetailsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Trainers\TrainersCard.resx">
+      <DependentUpon>TrainersCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Trainers\TrainerFrm.resx">
+      <DependentUpon>TrainerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Homepage\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\AddPaymentFrm.resx">
+      <DependentUpon>AddPaymentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Invoices\InvoiceCard.resx">
+      <DependentUpon>InvoiceCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\AddEquipmentFrm.resx">
+      <DependentUpon>AddEquipmentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\AddMachineFrm.resx">
+      <DependentUpon>AddMachineFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\CheckLiftingFrm.resx">
+      <DependentUpon>CheckLiftingFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\MemberLogs\Check-ins.resx">
+      <DependentUpon>Check-ins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\EditMachineFrm.resx">
+      <DependentUpon>EditMachineFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\EquipmentCard.resx">
+      <DependentUpon>EquipmentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\Inventory\MachineCheckCard.resx">
+      <DependentUpon>MachineCheckCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\GenerateQrFrm.resx">
+      <DependentUpon>GenerateQrFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\MembershipCard.resx">
+      <DependentUpon>MembershipCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\RenewPlanFrm.resx">
+      <DependentUpon>RenewPlanFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Sessions\AddSessions.resx">
+      <DependentUpon>AddSessions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Sessions\Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Dashboard\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Inventory&amp;Management\Inventory\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Sessions\SessionCard.resx">
+      <DependentUpon>SessionCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Staffs\EditStaff.resx">
+      <DependentUpon>EditStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Staffs\FrmStaff.resx">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Notification\NotificationFrm.resx">
+      <DependentUpon>NotificationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Invoices\Invoice_and_paymentsFrm.resx">
+      <DependentUpon>Invoice_and_paymentsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\MembershipFrm.resx">
+      <DependentUpon>MembershipFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierManagement\Memberships\ViewMembershipFrm.resx">
+      <DependentUpon>ViewMembershipFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Staffs\StaffCard.resx">
+      <DependentUpon>StaffCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement\Staffs\ViewStaffDetails.resx">
+      <DependentUpon>ViewStaffDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeFrm.resx">
+      <DependentUpon>WelcomeFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_elevate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_elevate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pic1 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\totalMembers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achievement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achievement %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TotalEquipment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\members.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TotalEquipment %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password-manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\birthday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gym_pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gym_pic%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gym_pic%283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group %284%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\members %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group-chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph %284%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graph %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weightlifting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weightlifting %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\members %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group-chat %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group-chat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-friend %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weightlifting %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group-chat2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-management %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-management %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-management %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-management %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dumbbell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dumbbell %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crossfit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crossfit %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Brown and Pink Minimal Icons Icon Set.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gettyimages-1393623987.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2025.05.29_SWEAT_KAYLA_GYM00372-1024x683-27c3a53.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\strong-man-training-gym.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uil_down-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uil_down-arrow %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clarity_dollar-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clarity_dollar-solid %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clarity_dollar-solid %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_round-wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoir_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mdi_account-payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\growth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\face-id.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Nov 1, 2025, 11_59_31 AM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scanner %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr-code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\two.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr-scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webcam-toy-photo4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letter-a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letter-c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webcam-toy-photo41.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
+</Project>
