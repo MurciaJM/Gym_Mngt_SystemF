@@ -20,6 +20,9 @@ namespace Gym_Mngt_System.Staffs
         private int targetOpacity = 100;
         public string StaffId { get; set; }
         public string StaffName { get; set; }
+        public string StaffFname { get; set; }
+        public string StaffMiddle { get; set; }
+        public string StaffLname { get; set; }
         public string StaffPosition { get; set; }
         public string StaffStatus { get; set; }
         public string Gender { get; set; }
@@ -206,10 +209,10 @@ namespace Gym_Mngt_System.Staffs
         private void EditStaffFrm_Load(object sender, EventArgs e)
         {
 
-            tbFname.Enabled = false;
-            dtpBirthdate.Enabled = false;
-            rbMale.Enabled = false;
-            rbFemale.Enabled = false;
+            tbFname.Enabled = true;
+            dtpBirthdate.Enabled = true;
+            rbMale.Enabled = true;
+            rbFemale.Enabled = true;
             cbPosition.Enabled = true;
 
 
@@ -222,7 +225,9 @@ namespace Gym_Mngt_System.Staffs
 
 
             lblStaffid.Text = StaffId;
-            tbFname.Text = StaffName;
+            tbFname.Text = StaffFname;
+            tbMiddle.Text = StaffMiddle;
+            tbLname.Text = StaffLname;
 
             if (DateTime.TryParse(BirthDate, out var dob))
                 dtpBirthdate.Value = dob;
@@ -236,10 +241,11 @@ namespace Gym_Mngt_System.Staffs
             cbPosition.Items.Clear();
             cbPosition.Items.AddRange(new object[]
             {
-                "Manager",
-                "Receptionist",
+                "Cashier",
                 "Trainer",
-                "Nutritionist"
+                "Janitor",
+                "Guard",
+                "Manager"
             });
 
             if (cbPosition.Items.Contains(StaffPosition))
@@ -267,11 +273,14 @@ namespace Gym_Mngt_System.Staffs
             {
                 var staff = Staff.Builder().
                    withStaffID(int.Parse(StaffId)).
-                   //withFname(tbFname.Text).
-                   //withMiddleName(tbMname.Text).
-                   //withLname(tbLname.Text).
-                   //withBirthdate(dtpBirthdate.Value).
-                   //withGender(rbMale.Checked ? "Male" : "Female").
+                   withFname(tbFname.Text).
+                   withMiddleName(tbMiddle.Text).
+                   withLname(tbLname.Text).
+                   withBirthdate(dtpBirthdate.Value).
+                   withGender(rbMale.Checked ? "Male" : "Female").
+                   withScheduleDate(cbDays.Text).
+                   withStartTime(DateTime.Parse(tbTimeIn.Text)).
+                   withEndTime(DateTime.Parse(tbTimeOut.Text)).
                    withPosition(cbPosition.Text).
                    withStatus(cbStatus.Text).
                    Build();

@@ -57,6 +57,7 @@
             this.tbTimeIn = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbTimeOut = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -541,11 +542,23 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(1352, 435);
+            this.label12.Location = new System.Drawing.Point(1320, 435);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 37);
+            this.label12.Size = new System.Drawing.Size(104, 37);
             this.label12.TabIndex = 65;
-            this.label12.Text = "To";
+            this.label12.Text = "AM  to";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(1669, 435);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 37);
+            this.label13.TabIndex = 65;
+            this.label13.Text = "PM";
             // 
             // AddStaffFrm
             // 
@@ -565,6 +578,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpBirthdate);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbTimeOut);
@@ -623,5 +637,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tbTimeIn;
         private Guna.UI2.WinForms.Guna2TextBox tbTimeOut;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

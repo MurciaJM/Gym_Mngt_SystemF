@@ -195,6 +195,7 @@
       <DependentUpon>AddMember.cs</DependentUpon>
     </Compile>
     <Compile Include="CashierManagement\Memberships\MemberAddedEventArgs.cs" />
+    <Compile Include="CashierManagement\Memberships\MemberIdCardPdf.cs" />
     <Compile Include="CashierManagement\Notification\NotificationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

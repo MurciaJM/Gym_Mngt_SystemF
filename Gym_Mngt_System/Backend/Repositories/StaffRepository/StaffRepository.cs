@@ -106,9 +106,11 @@ namespace Gym_Mngt_System.Backend.Repositories
                         cmd.Parameters.AddWithValue("@lname", staff.lname);
                         cmd.Parameters.AddWithValue("@birthdate", staff.birthdate);
                         cmd.Parameters.AddWithValue("@gender", staff.gender);
-                        cmd.Parameters.AddWithValue("@phoneNum", staff.phoneNumber);
                         cmd.Parameters.AddWithValue("@position", staff.position);
                         cmd.Parameters.AddWithValue("@status", staff.status);
+                        cmd.Parameters.AddWithValue("@schedule_date", staff.scheduleDate);
+                        cmd.Parameters.AddWithValue("@time_in", staff.startTime);
+                        cmd.Parameters.AddWithValue("@time_out", staff.endTime);
 
                         cmd.ExecuteNonQuery();
 

@@ -14,6 +14,7 @@ using Gym_Mngt_System.Backend.Entities;
 using Gym_Mngt_System.Backend.Service.Member_Service;
 using Gym_Mngt_System.Backend.Exceptions;
 using Gym_Mngt_System.Backend.Qrcode;
+using Gym_Mngt_System.CashierManagement.Memberships;
 
 namespace Gym_Mngt_System
 {
@@ -217,10 +218,15 @@ namespace Gym_Mngt_System
                             qrMembershipId = _membershipService.addMembership(_member);
                         }
 
-                        qrBytes = qrGenerator.generateQrCode(qrMembershipId, _member);
-                        _membershipService.insertQrCode(qrMembershipId, qrBytes);
-
+                        MemberIdCardPdf.GenerateIdCard(
+                        memberName: _member.getFullname(),
+                        memberId: qrMembershipId.ToString(),
+                        qrValue: qrMembershipId.ToString(),
+                        outputPath: Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +
+                            $@"\{_member.getFullname().Replace(" ", "_")}_IDCard.pdf"
+                        );
                     }
+
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
