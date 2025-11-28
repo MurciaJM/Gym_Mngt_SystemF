@@ -218,13 +218,23 @@ namespace Gym_Mngt_System
                             qrMembershipId = _membershipService.addMembership(_member);
                         }
 
+                        string pdfPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +
+                            $@"\{_member.getFullname().Replace(" ", "_")}_IDCard.pdf";
+
                         MemberIdCardPdf.GenerateIdCard(
-                        memberName: _member.getFullname(),
-                        memberId: qrMembershipId.ToString(),
-                        qrValue: qrMembershipId.ToString(),
-                        outputPath: Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +
-                            $@"\{_member.getFullname().Replace(" ", "_")}_IDCard.pdf"
+                            memberName: _member.getFullname(),
+                            memberId: qrMembershipId.ToString(),
+                            qrValue: qrMembershipId.ToString(),
+                            outputPath: pdfPath
                         );
+
+                        System.Diagnostics.Process.Start(pdfPath);
+
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        {
+                            FileName = pdfPath,
+                            UseShellExecute = true
+                        });
                     }
 
 

@@ -206,8 +206,8 @@ namespace Gym_Mngt_System.AdminManagement.Staffs
                             .withGender(rbMale.Checked ? "Male" : "Female")
                             .withPhoneNumber(tbContact.Text.Trim())
                             .withScheduleDate(cbDays.Text.Trim())
-                            .withStartTime(Convert.ToDateTime(tbTimeIn.Text.Trim()))
-                            .withEndTime(Convert.ToDateTime(tbTimeOut.Text.Trim()))
+                            .withStartTime(DateTime.Parse(tbTimeIn.Text.Trim()))
+                            .withEndTime(DateTime.Parse(tbTimeOut.Text.Trim()))
                             .withPosition(cbPosition.Text.Trim())
                             .withStatus("Active")
                             .Build();
@@ -267,8 +267,8 @@ namespace Gym_Mngt_System.AdminManagement.Staffs
                             .withGender(rbMale.Checked ? "Male" : "Female")
                             .withPhoneNumber(tbContact.Text.Trim())
                             .withScheduleDate(cbDays.Text.Trim())
-                            .withStartTime(Convert.ToDateTime(tbTimeIn.Text.Trim()))
-                            .withEndTime(Convert.ToDateTime(tbTimeOut.Text.Trim()))
+                            .withStartTime(DateTime.Parse(tbTimeIn.Text.Trim()))
+                            .withEndTime(DateTime.Parse(tbTimeOut.Text.Trim()))
                             .withPosition(cbPosition.Text.Trim())
                             .Build();
 

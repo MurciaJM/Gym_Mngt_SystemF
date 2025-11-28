@@ -54,13 +54,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.tbTimeOut = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbTimeIn = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblMiddle = new System.Windows.Forms.Label();
             this.tbMiddle = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblLname = new System.Windows.Forms.Label();
             this.tbLname = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbTimeOut = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbTimeIn = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -465,53 +465,6 @@
             this.label11.TabIndex = 126;
             this.label11.Text = "Time schedule";
             // 
-            // tbTimeOut
-            // 
-            this.tbTimeOut.AutoRoundedCorners = true;
-            this.tbTimeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.tbTimeOut.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbTimeOut.DefaultText = "";
-            this.tbTimeOut.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbTimeOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbTimeOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTimeOut.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTimeOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.tbTimeOut.FocusedState.BorderColor = System.Drawing.Color.OrangeRed;
-            this.tbTimeOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTimeOut.ForeColor = System.Drawing.Color.Black;
-            this.tbTimeOut.HoverState.BorderColor = System.Drawing.Color.OrangeRed;
-            this.tbTimeOut.Location = new System.Drawing.Point(630, 874);
-            this.tbTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbTimeOut.Name = "tbTimeOut";
-            this.tbTimeOut.PlaceholderText = "Time out.";
-            this.tbTimeOut.SelectedText = "";
-            this.tbTimeOut.Size = new System.Drawing.Size(217, 62);
-            this.tbTimeOut.TabIndex = 128;
-            // 
-            // tbTimeIn
-            // 
-            this.tbTimeIn.AutoRoundedCorners = true;
-            this.tbTimeIn.BackColor = System.Drawing.Color.Transparent;
-            this.tbTimeIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.tbTimeIn.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbTimeIn.DefaultText = "";
-            this.tbTimeIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbTimeIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbTimeIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTimeIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTimeIn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.tbTimeIn.FocusedState.BorderColor = System.Drawing.Color.OrangeRed;
-            this.tbTimeIn.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tbTimeIn.ForeColor = System.Drawing.Color.Black;
-            this.tbTimeIn.HoverState.BorderColor = System.Drawing.Color.OrangeRed;
-            this.tbTimeIn.Location = new System.Drawing.Point(297, 876);
-            this.tbTimeIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbTimeIn.Name = "tbTimeIn";
-            this.tbTimeIn.PlaceholderText = "Time in.";
-            this.tbTimeIn.SelectedText = "";
-            this.tbTimeIn.Size = new System.Drawing.Size(217, 62);
-            this.tbTimeIn.TabIndex = 129;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -589,6 +542,53 @@
             this.tbLname.SelectedText = "";
             this.tbLname.Size = new System.Drawing.Size(411, 54);
             this.tbLname.TabIndex = 110;
+            // 
+            // tbTimeOut
+            // 
+            this.tbTimeOut.AutoRoundedCorners = true;
+            this.tbTimeOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.tbTimeOut.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbTimeOut.DefaultText = "";
+            this.tbTimeOut.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbTimeOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbTimeOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbTimeOut.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbTimeOut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.tbTimeOut.FocusedState.BorderColor = System.Drawing.Color.OrangeRed;
+            this.tbTimeOut.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tbTimeOut.ForeColor = System.Drawing.Color.White;
+            this.tbTimeOut.HoverState.BorderColor = System.Drawing.Color.OrangeRed;
+            this.tbTimeOut.Location = new System.Drawing.Point(630, 874);
+            this.tbTimeOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbTimeOut.Name = "tbTimeOut";
+            this.tbTimeOut.PlaceholderText = "Time out.";
+            this.tbTimeOut.SelectedText = "";
+            this.tbTimeOut.Size = new System.Drawing.Size(217, 62);
+            this.tbTimeOut.TabIndex = 128;
+            // 
+            // tbTimeIn
+            // 
+            this.tbTimeIn.AutoRoundedCorners = true;
+            this.tbTimeIn.BackColor = System.Drawing.Color.Transparent;
+            this.tbTimeIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.tbTimeIn.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbTimeIn.DefaultText = "";
+            this.tbTimeIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbTimeIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbTimeIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbTimeIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbTimeIn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.tbTimeIn.FocusedState.BorderColor = System.Drawing.Color.OrangeRed;
+            this.tbTimeIn.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tbTimeIn.ForeColor = System.Drawing.Color.White;
+            this.tbTimeIn.HoverState.BorderColor = System.Drawing.Color.OrangeRed;
+            this.tbTimeIn.Location = new System.Drawing.Point(297, 876);
+            this.tbTimeIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbTimeIn.Name = "tbTimeIn";
+            this.tbTimeIn.PlaceholderText = "Time in.";
+            this.tbTimeIn.SelectedText = "";
+            this.tbTimeIn.Size = new System.Drawing.Size(217, 62);
+            this.tbTimeIn.TabIndex = 129;
             // 
             // EditStaff
             // 
@@ -670,12 +670,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2TextBox tbTimeOut;
-        private Guna.UI2.WinForms.Guna2TextBox tbTimeIn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblMiddle;
         private Guna.UI2.WinForms.Guna2TextBox tbMiddle;
         private System.Windows.Forms.Label lblLname;
         private Guna.UI2.WinForms.Guna2TextBox tbLname;
+        private Guna.UI2.WinForms.Guna2TextBox tbTimeOut;
+        private Guna.UI2.WinForms.Guna2TextBox tbTimeIn;
     }
 }

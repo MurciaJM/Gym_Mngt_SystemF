@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using static QRCoder.PayloadGenerator.SwissQrCode;
 
 namespace Gym_Mngt_System.Staffs
 {
@@ -271,19 +272,18 @@ namespace Gym_Mngt_System.Staffs
 
             try
             {
-                var staff = Staff.Builder().
-                   withStaffID(int.Parse(StaffId)).
-                   withFname(tbFname.Text).
-                   withMiddleName(tbMiddle.Text).
-                   withLname(tbLname.Text).
-                   withBirthdate(dtpBirthdate.Value).
-                   withGender(rbMale.Checked ? "Male" : "Female").
-                   withScheduleDate(cbDays.Text).
-                   withStartTime(DateTime.Parse(tbTimeIn.Text)).
-                   withEndTime(DateTime.Parse(tbTimeOut.Text)).
-                   withPosition(cbPosition.Text).
-                   withStatus(cbStatus.Text).
-                   Build();
+                var staff = Staff.Builder()
+                            .withFname(tbFname.Text.Trim())
+                            .withMiddleName(tbMiddle.Text.Trim())
+                            .withLname(tbLname.Text.Trim())
+                            .withBirthdate(dtpBirthdate.Value)
+                            .withGender(rbMale.Checked ? "Male" : "Female")
+                            .withScheduleDate(cbDays.Text.Trim())
+                            .withStartTime(DateTime.Parse(tbTimeIn.Text.Trim()))
+                            .withEndTime(DateTime.Parse(tbTimeOut.Text.Trim()))
+                            .withPosition(cbPosition.Text.Trim())
+                            .withStatus(cbStatus.Text.Trim())
+                            .Build();
 
                 _staffService.updateStaff(staff);
 

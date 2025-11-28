@@ -264,9 +264,6 @@ namespace Gym_Mngt_System
                 PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
                 doc.Open();
 
-                // ======================
-                // Title Section
-                // ======================
                 var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
                 Paragraph header = new Paragraph("MONTHLY SALES ACTIVITY REPORT\n\n", titleFont)
                 {
@@ -274,10 +271,6 @@ namespace Gym_Mngt_System
                 };
                 doc.Add(header);
 
-
-                // ======================
-                // Table Setup
-                // ======================
                 PdfPTable table = new PdfPTable(5);
                 table.WidthPercentage = 100;
                 table.SetWidths(new float[] { 1.5f, 2f, 1.5f, 2f, 2f });
@@ -288,9 +281,6 @@ namespace Gym_Mngt_System
                 var headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11, BaseColor.WHITE);
                 var bodyFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK);
 
-                // ======================
-                // Header Row
-                // ======================
                 string[] headers = { "YEAR", "MONTH", "QUARTER", "REVENUE", "PROJECTED" };
 
                 foreach (string col in headers)
@@ -304,9 +294,6 @@ namespace Gym_Mngt_System
                     table.AddCell(cell);
                 }
 
-                // ======================
-                // Body Rows (Alternating Colors)
-                // ======================
 
                 bool useGrey = false;
 
@@ -327,10 +314,7 @@ namespace Gym_Mngt_System
 
                 doc.Add(table);
 
-
-                // ======================
-                // Summary Section (Styled Grey Box)
-                // ======================
+                
                 decimal totalRevenue = monthlyData.Sum(x => x.Revenue);
                 decimal projected = totalRevenue * 1.05m;
 
@@ -373,9 +357,6 @@ namespace Gym_Mngt_System
         }
 
 
-        // ==========================================
-        // Helper: Adds styled cell
-        // ==========================================
         private void AddBodyCell(PdfPTable table, string text, BaseColor bg, iTextSharp.text.Font font)
         {
             table.AddCell(new PdfPCell(new Phrase(text, font))
@@ -385,10 +366,6 @@ namespace Gym_Mngt_System
                 HorizontalAlignment = Element.ALIGN_CENTER
             });
         }
-
-        // ==========================================
-        // Helper: Convert Month → Quarter
-        // ==========================================
         private string GetQuarter(int month)
         {
             if (month <= 3) return "Q1";

@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using Gym_Mngt_System.Backend.Repositories.MachineRepository;
+using Gym_Mngt_System.AdminManagement.Inventory_Management;
 
 
 namespace Gym_Mngt_System
 {
     public partial class EditMachineFrm : Form
     {
+        private readonly MachineRepository _machinerepo = new MachineRepository();
         private ToolTip statusToolTip;
         private Timer popupTimer;
         private int targetOpacity = 100;
@@ -182,6 +185,14 @@ namespace Gym_Mngt_System
                 return;
             }
 
+            //var updateMachine = new Machine
+            //{
+            //    Type = tbMachineType.Text,
+            //    Category = tbBrand.Text,
+            //    Status = 
+            //};
+
+            //_machinerepo.UpdateMachine(updateMachine);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
